@@ -50,4 +50,27 @@ Confidence: 96.57%
 
 ---
 
+
+### Download the dataset from the below URL
+https://www.kaggle.com/datasets/utkarshsaxenadn/10-species-of-monkey-multiclass-classification
+
+After unzipping the file 
+– Delete “TFRecords Data” folder
+– Delete “resnet50V2-v1.h5” file
+– Keep the inner “Monkey Species Data” folder directly under the Python folder
+• It will have “Prediction Data” and “Training Data” folders.
+
+
+Remove the curropted files using the following code
+
+    import os, glob
+    files = glob.glob("Monkey Species Data/*/*/*")
+    for file in files :
+    f = open(file, "rb") # open to read binary file
+    if not b"JFIF" in f.peek(10) :
+    f.close()
+    os.remove(file)
+    else :
+    f.close()
+
  
